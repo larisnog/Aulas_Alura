@@ -1,0 +1,26 @@
+quantifier
+{n} - exatamente n vezes
+{n,} - no mínimo n vezes
+{n,m} - no mínimo n, no máximo m vezes
+
+? - zero ou uma vezes
++ - uma vez ou mais vezes
+* - zero ou mais vezes
+
+classes de char - []
+[A-Z] - letras de A até Z
+[123] - 1,2 ou 3
+
+\d - todos os dígitos [0-9]
+\s - whitespace [ \t\r\n\f]
+\w - wordchar [A-Za-z0-0_]
+
+classes e quantifier
+[A-Z][a-zç]{3,8} - mês
+[1-3]?\d - dia
+\d{3} - 3 dígitos\s+ - um ou mais whitespaces
+
+âncoras
+\b - word boudary (antes ou depois não pode ter um wordchar)
+^ - início do alvo
+$ - fim do alvo
