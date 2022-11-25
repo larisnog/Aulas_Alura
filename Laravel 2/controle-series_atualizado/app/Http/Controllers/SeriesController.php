@@ -21,11 +21,10 @@ class SeriesController
 
     public function store(Request $request)
     {
-        $nomeSerie = $request->input('nome');
-        $serie = new Serie();
-        $serie->nome = $nomeSerie;
-        $serie->save();
+        Serie::create($request->all()); //pega todos os dados vindos da requisição
+        //Serie::create($request->only(['nome'])); pega somente os parâmetros passados
+        //Serie::create($request->expect(['_token'])); pega todos os dados exceto o parâmetro
 
-        return redirect('/series');
+        return redirect()->route('series.index');
     }
 }
