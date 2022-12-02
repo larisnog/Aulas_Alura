@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\SeriesFormRequest;
 use App\Models\Serie;
 
 class SeriesController
@@ -21,7 +22,7 @@ class SeriesController
         return view('series.create');
     }   
 
-    public function store(Request $request)
+    public function store(SeriesFormRequest $request)
     {
         //Serie::create($request->only(['nome'])); pega somente os parâmetros passados
         //Serie::create($request->expect(['_token'])); pega todos os dados exceto o parâmetro
@@ -44,7 +45,7 @@ class SeriesController
         return view('series.edit')->with('serie', $series);
     }
 
-    public function update(Serie $series, Request $request)
+    public function update(Serie $series, SeriesFormRequest $request)
     {   
         $series->fill($request->all());
         $series->save();
