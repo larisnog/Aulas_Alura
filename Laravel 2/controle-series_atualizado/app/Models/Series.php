@@ -6,14 +6,14 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Season;
 
-class Serie extends Model
+class Series extends Model
 {
     public $timestamps = false;
     protected $fillable = ['nome'];
 
-    public function temporadas()
+    public function seasons()
     {
-        return $tis->hasMany(Season::class, 'series_id');
+        return $this->hasMany(Season::class, 'series_id');
     }
 
     protected static function booted()
