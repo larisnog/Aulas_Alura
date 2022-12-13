@@ -26,9 +26,12 @@ class SeriesController
 
     public function store(SeriesFormRequest $request)
     {
-        //Serie::create($request->only(['nome'])); pega somente os parâmetros passados
-        //Serie::create($request->expect(['_token'])); pega todos os dados exceto o parâmetro
-        $serie = Series::create($request->all()); //pega todos os dados vindos da requisição
+        $coverPath = $request->file('cover')->store('series_cover', 'public');
+        $request->coverPath = $coverPath;
+        $serie = Series::create([
+            'nome' => $request->nome,
+            'cover' => $request->coverPath,
+        ]); 
         
         $seasons = [];
         for ($i = 1; $i <= $request->seasonsQty; $i++){
@@ -57,6 +60,7 @@ class SeriesController
     public function destroy(Series $series)
     {
         $series->delete();
+        \App\Jobs\DeleteSeriesCover::dispatch($series->cover);
 
         return redirect()->route('series.index')
             ->with('mensagem.sucesso', "Série '{$series->nome}' removida com sucesso!");
