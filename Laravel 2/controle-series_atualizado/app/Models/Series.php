@@ -9,7 +9,7 @@ use App\Models\Season;
 class Series extends Model
 {
     public $timestamps = false;
-    protected $fillable = ['nome', 'cover'];
+    protected $fillable = ['nome'];
 
     public function seasons()
     {
