@@ -1,13 +1,29 @@
 <meta charset="UTF-8">
 
 <script>
+
+    function pulaLinha() {
+        document.write("<br>");
+    }
+
+    function mostra(frase){
+        document.write(frase);
+        pulaLinha();
+    }
+
     var ano = 2017;
 
-    document.write("Flávio tem " + (ano - 1977) + " anos" + "<br>");
-    document.write("Joaquim tem " + (ano - 1996) + " anos" + "<br>");
+    // document.write("Flávio tem " + (ano - 1977) + " anos");
+
+    mostra("Flávio tem " + (ano - 1977) + " anos");
+
+    mostra("Joaquim tem " + (ano - 1996) + " anos")
 
     ano = 2018;
-    document.write("Barney tem " + (ano - 1976) + " anos" + "<br>");
+
+    mostra("Barney tem " + (ano - 1976) + " anos");
+
+    /*
 
     var idadeFlavio = 39;
     var idadeJoaquim = 20;
@@ -19,4 +35,5 @@
     document.write("<br>")
     document.write("A idade de " + nome + " é " + idadeFlavio)
 
+    */
 </script>
